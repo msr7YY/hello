@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check!</title>
+    <link rel="website icon" type="png" href="items/jonkler-laugh.png">
+    <style>
+        body {
+            cursor: pointer, auto !important;
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .greeting {
+            box-shadow: 0 0 10px cadetblue;
+            text-shadow: 0 0 10px red;
+            position: absolute;
+            border-radius: 5px;
+            font-size: 20em;
+            color: black;
+            opacity: 0;
+            transform: scale(0);
+            animation: pop 0.3s forwards, disappear 0.5s 0.7s forwards;
+            }
+
+    @keyframes pop {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+            }
+        }
+        @keyframes disappear {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+    <script>
+        function redirectChapriTo(url){
+            setTimeout(function() {
+                window.location.href = url;
+            }, 1000);
+        }
+        function checkChapri() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isMobile = /mobile|android|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(userAgent);
+            const isScreenWide = window.innerWidth > 1024;
+            return !isMobile && isScreenWide;
+        }
+    if (checkChapri()) {
+        redirectChapriTo("main.html");
+    } else {
+        redirectChapriTo("mobile.html");
+    }
+    </script>
+<body>
+    <div class="greeting">Yo</div>
+</body>
+</html>
+
